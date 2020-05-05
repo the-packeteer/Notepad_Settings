@@ -1,0 +1,48 @@
+ - UTC timezone
+ 
+ 
+To Be Removed:
+delete groups INTERFACE_MANAGEMENT
+delete groups INTERFACE_STREAM
+#
+delete interfaces ge-0/0/* unit 0 family ethernet-switching storm-control default
+#
+delete interfaces ae1 unit 0 family inet6 address 2605:6000:0:4::a:6f/127
+#
+delete interfaces ae2 unit 0 family inet6 address 2605:6000:0:4::a:76/127
+#
+delete snmp trap-options source-address lo0
+#
+set snmp trap-options source-address [Lo0 IP]
+#
+delete protocols rstp interface ge-0/0/*
+#
+delete vlans VOD_MGMT
+#
+delete vlans VOD_STRM
+
+BGP
+delete protocols bgp group DEFAULT_RR
+#
+set protocols bgp group DEFAULT_ONLY_RR type internal
+set protocols bgp group DEFAULT_ONLY_RR description "DHUB PEERS"
+set protocols bgp group DEFAULT_ONLY_RR local-address 24.28.129.219
+set protocols bgp group DEFAULT_ONLY_RR import DEFAULT_ONLY
+set protocols bgp group DEFAULT_ONLY_RR family inet unicast
+set protocols bgp group DEFAULT_ONLY_RR authentication-key "$9$Fg2o/tOrevWLNvMGi.PQz"
+set protocols bgp group DEFAULT_ONLY_RR export IPV4_ADVERTISE_OUT
+set protocols bgp group DEFAULT_ONLY_RR peer-as 11427
+set protocols bgp group DEFAULT_ONLY_RR neighbor 24.175.52.137 description dllatxl304r
+set protocols bgp group DEFAULT_ONLY_RR neighbor 24.175.52.138 description dllatxl305r
+set protocols bgp group DEFAULT_ONLY_RR neighbor 24.175.52.139 description hstqtxl304r
+set protocols bgp group DEFAULT_ONLY_RR neighbor 24.175.52.140 description hstqtxl305r
+
+
+delete interfaces irb unit 50
+delete vlans HEADEND l3-interface irb.50
+#
+set interfaces irb unit 55 description "[TYPE=Headend Servers Network]"
+set interfaces irb unit 55 family inet filter output PROTECT_VIDEO_SOURCE
+set interfaces irb unit 55 family inet address 10.51.165.1/25
+#
+set vlans HEADEND l3-interface irb.55

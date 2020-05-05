@@ -1,0 +1,75 @@
+clmcohib01r
+-----------
+interface Loopback0 ipv4 address 65.29.0.26/32
+!
+router bgp 10796 address-family ipv4 unicast redistribute ospf 65000 route-policy EDGE_OSPF_TO_BGP
+!
+route-policy EDGE_OSPF_TO_BGP
+  if destination in DEFAULT_ONLY then
+    drop
+  else
+    set next-hop 65.29.0.26
+    set origin igp
+    set community (10796:405)
+    pass
+  endif
+end-policy
+!
+prefix-set DEFAULT_ONLY
+  0.0.0.0/0
+end-set
+**********************************************************
+**********************************************************
+**********************************************************
+**********************************************************
+crtntxjt01r
+-----------
+prefix-set DEFAULT_ROUTE
+  0.0.0.0/0
+end-set
+
+dllbtxlb02r
+-----------
+router bgp 11427 address-family ipv4 unicast redistribute ospf 65000 route-policy EDGE_OSPF_TO_BGP
+!NOT IPv6 EDGE_OSPF_TO_BGP!
+!
+route-policy EDGE_OSPF_TO_BGP
+  if destination in DENY_DEFAULT then
+    drop
+  else
+    set next-hop 24.175.48.104
+    set origin igp
+    set community (11427:523)
+    pass
+  endif
+end-policy
+!
+prefix-set DENY_DEFAULT
+  0.0.0.0/0
+end-set
+
+ausutxla01r
+-----------
+prefix-set DEFAULT_ROUTE
+  0.0.0.0/0
+end-set
+
+ausxtxir02r
+-----------
+router bgp 11427 address-family ipv4 unicast redistribute ospf 65000 route-policy EDGE_OSPF_TO_BGP
+!NOT IPv6 EDGE_OSPF_TO_BGP!
+!
+route-policy EDGE_OSPF_TO_BGP
+  if destination in DEFAULT_ROUTE then
+    drop
+  else
+    set next-hop 24.175.40.252
+    set origin igp
+    set community (11427:501)
+    pass
+  endif
+end-policy
+!
+prefix-set DEFAULT_ROUTE
+  0.0.0.0/0
+end-set

@@ -1,0 +1,38 @@
+ip access-list extended PROTECT_VIDEO
+ remark GRANITE POLLERS
+ permit ip 22.0.0.0 0.255.255.255 any
+ permit ip 98.7.155.0 0.0.0.255 any
+ permit ip 98.7.187.0 0.0.0.255 any
+ remark NOC_MONITORING
+ permit ip 69.134.208.32 0.0.0.31 any
+ permit ip host 69.134.21.71 any
+ permit ip host 69.134.161.71 any
+ permit ip host 71.10.216.30 any
+ permit ip 24.174.72.0 0.0.1.255 any
+ permit ip 24.93.54.0 0.0.0.255 any
+ permit ip 72.183.76.0 0.0.0.248 any
+ remark Billing
+ permit tcp host 205.144.151.147 any
+ remark Back office and HE
+ permit ip 24.174.0.0 0.0.255.255 any
+ remark TX Trusted space
+ permit ip 24.175.0.0 0.0.63.255 any
+ remark KC Trusted space
+ permit ip 98.156.40.0 0.0.3.255 any
+ remark User subnet
+ permit ip 10.93.192.0 0.0.15.255 any
+ permit ip 72.183.72.96 0.0.0.15 any
+ remark TX Legacy QPSK
+ permit ip 192.168.192.0 0.0.63.255 any
+ remark HE and Hub Equipments, Video QAMs and QPSK
+ permit ip 172.16.0.0 0.15.255.255 any
+ remark Legacy HE and Hub Equipments
+ permit ip 10.48.0.0 0.15.255.255 any
+ permit ip 10.96.0.0 0.31.255.255 any
+ permit ip 10.157.7.0 0.0.0.63 any
+ permit ip 10.192.0.0 0.31.255.255 any
+ remark Optical ONS subnet
+ permit ip 68.207.76.0 0.0.1.255 any
+ remark Deny everything else
+ deny   ip any any
+ permit ip 142.136.0.0 0.0.15.255 any

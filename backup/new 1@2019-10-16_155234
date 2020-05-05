@@ -1,0 +1,102 @@
+IPMGMT-13594
+Charter:
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Hub: Fort Worth Hub-C
+CLLI: FTWBTXFE
+Hostname: cts37ftwotx.netops.charter.com
+CMTS Model: Arris 48SG
+LAG: Yes
+CCAP: Yes
+
+
+ 
+•Public - Infrastructure - Loopback 15:                  96.34.194.104/32
+•6Infrastructure - Loopback 15:                          2001:506:100:c00:0:6022:c200:14/128
+
+•Public - Infrastructure - Interconnect - Intra-Region:   96.34.130.146/31
+														  96.34.130.150/31
+
+•6Infrastructure – Interconnect:                         2001:506:100:c03::10a/127
+														 2001:506:100:c03::10e/127
+
+•Private – Red – CCAP:                                   172.31.186.64 - .75/32
+
+
+
+•/56 6Private - CMTS - CM             : 2602:101:80b:700::/56
+•/56 6Public - CMTS - Bundle          : 2600:6c56:7006:700::/56
+•/40 6Public - CMTS - Residential PD  : 2600:6c56:5a00::/40
+•/64 6Private - CMTS - STB Mgmt       : 2602:108:4:30::/64
+•/64 6Public - CMTS - STB Host        : 2602:10e:4:30::/64
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+IPMGMT-13594
+Charter:
+Hub: Fort Worth Hub-C
+CLLI: FTWBTXFE
+Hostname: cts38ftwotx.netops.charter.com
+CMTS Model: Arris 48SG
+LAG: Yes
+CCAP: Yes
+
+
+  
+•Public - Infrastructure - Loopback 15:                  96.34.194.105/32
+•6Infrastructure - Loopback 15:                          2001:506:100:c00:0:6022:c200:15/128
+
+•Public - Infrastructure - Interconnect - Intra-Region:  96.34.130.154/31
+														 96.34.130.158/31
+														 
+•6Infrastructure – Interconnect:						 2001:506:100:c04::a/127
+														 2001:506:100:c04::e/127
+														 
+•Private – Red – CCAP:									 172.31.186.80 - 91 /32
+     12x /32s
+	 
+
+•/56 6Private - CMTS - CM             : 2602:101:80b:800::/56
+•/56 6Public - CMTS - Bundle          : 2600:6c56:7006:800::/56
+•/40 6Public - CMTS - Residential PD  : 2600:6c56:5b00::/40
+•/64 6Private - CMTS - STB Mgmt       : 2602:108:4:31::/64
+•/64 6Public - CMTS - STB Host        : 2602:10e:4:31::/64
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+IPMGMT-13594
+Charter:
+
+Hub: Fort Worth Hub-C
+CLLI: FTWBTXFE
+Hostname: cts39ftwotx.netops.charter.com
+CMTS Model: Arris 48SG
+LAG: Yes
+CCAP: Yes
+
+
+
+•Public - Infrastructure - Loopback 15:                  96.34.194.108/32
+•6Infrastructure - Loopback 15:                          2001:506:100:c00:0:6022:c200:16/128
+
+•Public - Infrastructure - Interconnect - Intra-Region:  96.34.131.168/31
+														 96.34.131.170/31
+
+•6Infrastructure – Interconnect:						 2001:506:100:c03::24/127
+														 2001:506:100:c03::26/127
+
+
+•Private – Red – CCAP:                                    172.31.186.92 - 103 /32
+      12x /32s
+	  
+
+•/56 6Private - CMTS - CM              2602:101:80b:900::/56
+•/56 6Public - CMTS - Bundle           2600:6c56:7006:900::/56
+•/40 6Public - CMTS - Residential PD   2600:6c56:600::/40
+•/64 6Private - CMTS - STB Mgmt        2602:108:4:3a::/64
+•/64 6Public - CMTS - STB Host         2602:10e:4::/64
+
+
+

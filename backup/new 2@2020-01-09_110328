@@ -1,0 +1,15 @@
+RP/0/RP0/CPU0:dllbtxlb02r#ping 72.179.204.6 source 72.179.204.5   
+Tue Jan  7 04:04:15.787 CST
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 72.179.204.6, timeout is 2 seconds:
+..
+Success rate is 0 percent (0/2)
+!
+!
+!
+RP/0/RP0/CPU0:dllbtxlb02r#ping 72.179.204.5 source 72.179.204.6   
+Tue Jan  7 04:34:26.974 CST
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 72.179.204.5, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/2/5 ms

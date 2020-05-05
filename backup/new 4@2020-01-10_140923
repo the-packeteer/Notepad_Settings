@@ -1,0 +1,10 @@
+show configuration class-of-service classifiers dscp STVA_IPV4_CLASS | display set
+show configuration class-of-service classifiers dscp-ipv6 STVA_IPV6_CLASS | display set
+show configuration class-of-service schedulers STVA_SCHEDULER | display set
+show configuration class-of-service scheduler-maps STVA_SCHEDULER_MAP | display set
+show configuration class-of-service rewrite-rules dscp DSCP_IPV4_REWRITE | display set
+show configuration class-of-service rewrite-rules dscp-ipv6 DSCP_IPV6_REWRITE | display set
+
+show configuration interfaces ae1 | display set 
+
+show configuration interfaces ae1 | display set 

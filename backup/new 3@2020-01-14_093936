@@ -1,0 +1,44 @@
+no interface Bundle-Ether40 
+interface Bundle-Ether40 description "lag to dllbtxlb-de-sen0001" 
+interface Bundle-Ether40 mtu 9192
+interface Bundle-Ether40 ipv4 address 72.179.204.117/30
+interface Bundle-Ether40 ipv6 address 2605:6000:0:8::8:4d/126
+interface Bundle-Ether40 bundle minimum-active links 1
+interface Bundle-Ether40 load-interval 30
+interface Bundle-Ether40 dampening 1 750 2000 4
+no interface Bundle-Ether40 ipv4 access-group STVA_OUT_IPV4_FILTER egress
+no interface Bundle-Ether40 ipv6 access-group STVA_OUT_IPV6_FILTER egress
+no router isis 11427 interface Bundle-Ether40 
+no router isis 11427 interface Bundle-Ether40 circuit-type level-1
+no router isis 11427 interface Bundle-Ether40 point-to-point
+no router isis 11427 interface Bundle-Ether40 hello-padding disable
+no router isis 11427 interface Bundle-Ether40 hello-interval 1
+no router isis 11427 interface Bundle-Ether40 hello-password hmac-md5 encrypted 104150105D0245
+no router isis 11427 interface Bundle-Ether40 address-family ipv6 unicast 
+no router isis 11427 interface Bundle-Ether40 address-family ipv6 unicast metric 65000
+no router ospf 11427 area 523 interface Bundle-Ether40 
+no router ospf 11427 area 523 interface Bundle-Ether40 authentication message-digest
+no router ospf 11427 area 523 interface Bundle-Ether40 message-digest-key 1 md5 encrypted 12165C1E4A1E5B
+no router ospf 11427 area 523 interface Bundle-Ether40 network point-to-point
+no router ospf 11427 area 523 interface Bundle-Ether40 passive disable
+
+
+ipv4 access-list STVA_OUT_IPV4_FILTER 711 permit ipv4 72.129.204.0/24 any
+
+
+no router ospf 11427 area 523 interface Bundle-Ether40 cost 10
+
+swapped
+*******
+config
+no interface Bundle-Ether40 ipv4 address 72.179.204.117/30
+interface Bundle-Ether40 ipv4 address 72.179.204.118/30
+show com cha dif
+
+
+standard
+********
+config
+no interface Bundle-Ether40 ipv4 address 72.179.204.118/30
+interface Bundle-Ether40 ipv4 address 72.179.204.117/30
+show com cha dif

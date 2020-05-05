@@ -1,0 +1,31 @@
+
+dllctxra02h
+-----------
+config exclusive
+delete interfaces xe-0/0/68
+delete interfaces xe-0/0/69
+delete interfaces xe-0/0/70
+delete interfaces xe-0/0/71
+delete interfaces ae20
+delete protocols mpls interface ae20.0
+delete protocols isis interface ae20.0
+delete protocols ospf area 0.0.2.11 interface ae20.0
+delete protocols ldp interface ae20.0
+delete protocols pim interface ae20.0
+#
+show | compare
+#
+#####STOP & verify what is being removed#####
+#
+commit check
+#
+#####STOP & verify check is successful#####
+#
+commit comment "CBOCOREIP-70273-Clean-Up" and-quit
+
+
+
+xe-0/0/68                  tge to artrtx2804h tge 9/6 AE20
+xe-0/0/69                  tge to artrtx2804h tge 9/5 AE20
+xe-0/0/70                  tge to artrtx2804h tge 9/2 AE20
+xe-0/0/71                  tge to artrtx2804h tge 9/1 AE20

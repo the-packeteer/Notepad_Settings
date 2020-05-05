@@ -1,0 +1,63 @@
+interface GigabitEthernet5/1
+ description ge to hrlntxcb03v ge1/1 - INC000004015881
+ ip address 24.175.55.240 255.255.255.254
+ no ip redirects
+ ip pim sparse-mode
+ ip ospf message-digest-key 1 md5 7 130A4E1B531953
+ ip ospf network point-to-point
+ ip ospf hello-interval 1
+ ip ospf cost 65000
+ load-interval 30
+ shutdown
+ mls qos trust dscp
+end
+
+
+
+
+
+
+
+
+
+interface GigabitEthernet3/18
+ description ge to crcktx21-ccor01
+ switchport
+ switchport access vlan 51
+ switchport mode access
+ load-interval 30
+ no cdp enable
+end
+
+crcktx2103h#show run int Gi3/19
+Building configuration...
+
+Current configuration : 168 bytes
+!
+interface GigabitEthernet3/19
+ description ge to crcktx21-ccor02
+ switchport
+ switchport access vlan 51
+ switchport mode access
+ load-interval 30
+ no cdp enable
+end
+
+
+crcktx2103h#show  int Gi3/18   
+GigabitEthernet3/18 is administratively down, line protocol is down (disabled)
+  Hardware is C6k 1000Mb 802.3, address is 0026.cb3a.9a40 (bia 0026.cb3a.9a40)
+  MTU 1500 bytes, BW 100000 Kbit/sec, DLY 100 usec, 
+     reliability 255/255, txload 0/255, rxload 0/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  Auto-duplex, Auto-speed
+
+
+GigabitEthernet3/19 is administratively down, line protocol is down (disabled)
+  Hardware is C6k 1000Mb 802.3, address is 0026.cb3a.9a40 (bia 0026.cb3a.9a40)
+  MTU 1500 bytes, BW 100000 Kbit/sec, DLY 100 usec, 
+     reliability 255/255, txload 0/255, rxload 0/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  Auto-duplex, Auto-speed

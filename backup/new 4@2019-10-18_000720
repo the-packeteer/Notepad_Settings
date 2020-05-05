@@ -1,0 +1,1 @@
+set groups ISIS_CMTS protocols isis interface <*> level 1 hello-authentication-key "$9$IO9RhyW8Xdb2reX7VbaJ1IEyrKvWLbYoIENdbYGU9Ap"

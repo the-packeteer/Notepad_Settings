@@ -1,0 +1,631 @@
+set groups INTERFACE_AE interfaces <ae*> aggregated-ether-options lacp active
+set groups INTERFACE_AE interfaces <ae*> aggregated-ether-options lacp periodic fast
+set groups INTERFACE_QFX interfaces <*> mtu 9192
+set groups OSPF_DEFAULT protocols ospf area 504 interface <*> hello-interval 1
+set groups OSPF_DEFAULT protocols ospf area 504 interface <*> interface-type p2p
+set groups OSPF_DEFAULT protocols ospf area 504 interface <*> metric 100
+set groups OSPF_DEFAULT protocols ospf area 504 interface <*> authentication md5 1 key "$9$Qy6XnCuSrevWxeKJDk.5T"
+set groups INTERFACE_QPSK interfaces <*> mtu 1514
+set groups INTERFACE_QPSK interfaces <*> unit 0 family inet filter output PROTECT_VIDEO
+set groups INTERFACE_QPSK interfaces <*> unit 0 family inet filter input PROTECT_QPSK
+set system host-name bwvltx5401y
+set system domain-name netops.charter.com
+set system time-zone CST6CDT
+set system default-address-selection
+set system no-redirects
+set system default-address-selection
+set system authentication-order tacplus
+set system ports console type vt100
+set system root-authentication encrypted-password "$1$I4iQbxU0$38okZS7BNaYOeOHQfqwY51"
+set system name-server 209.18.47.61
+set system name-server 209.18.47.62
+set system tacplus-server 24.242.190.58 port 49
+set system tacplus-server 24.242.190.58 secret "$9$C.TGu1hWLxNdsx7kPQF/9p0BRESdVYg4JhS24"
+set system tacplus-server 24.242.190.58 timeout 3
+set system tacplus-server 24.242.190.58 source-address 24.175.60.24
+set system tacplus-server 98.145.34.58 port 49
+set system tacplus-server 98.145.34.58 secret "$9$C.TGu1hWLxNdsx7kPQF/9p0BRESdVYg4JhS24"
+set system tacplus-server 98.145.34.58 timeout 3
+set system tacplus-server 98.145.34.58 source-address 24.175.60.24
+set system accounting events interactive-commands
+set system accounting destination tacplus server 209.18.47.148 secret "$9$aPJjH/9pBRhSrv8X7VbP5QntO1IE"
+set system accounting destination tacplus server 209.18.47.148 source-address 24.175.60.24
+set system accounting destination tacplus server 209.18.47.182 secret "$9$aPJjH/9pBRhSrv8X7VbP5QntO1IE"
+set system accounting destination tacplus server 209.18.47.182 source-address 24.175.60.24
+set system accounting destination tacplus server 24.242.190.58 secret "$9$C.TGu1hWLxNdsx7kPQF/9p0BRESdVYg4JhS24"
+set system accounting destination tacplus server 24.242.190.58 source-address 24.175.60.24
+set system accounting destination tacplus server 98.145.34.58 secret "$9$C.TGu1hWLxNdsx7kPQF/9p0BRESdVYg4JhS24"
+set system accounting destination tacplus server 98.145.34.58 source-address 24.175.60.24
+set system login message "*******************************************Warning Notice**************************************\nThis system is restricted solely to Time Warner Cable  authorized users or legitimate business\npurposes only. The actual or attempted unauthorized access or modification of this system\nis strictly prohibited by Time Warner Cable . Unauthorized users are subject to company disciplinary\nprocedures and criminal and civil penalties under state, federal or other applicable domestic\nand foreign laws. The use of this system expressly consents to such monitoring and is advised\nthat if such monitoring reveals possible evidence of criminal activity, Time Warner Cable  may\nprovide the evidence of such activity to law enforcement officials. All users must comply\nwith Time Warner Cable  corporate security instructions regarding the protection of Time Warner Cable \ninformation.\n*************************** Network Operations Center 1-866-924-1916  ****************************\n"
+set system accounting events interactive-commands
+set system login class ADMIN_CLASS idle-timeout 15
+set system login class ADMIN_CLASS permissions all
+set system login class ENG_CLASS idle-timeout 15
+set system login class ENG_CLASS permissions all
+set system login class NOC_CLASS idle-timeout 15
+set system login class NOC_CLASS permissions secret
+set system login class NOC_CLASS permissions view
+set system login class NOC_CLASS permissions view-configuration
+set system login user ENG uid 2002
+set system login user ENG class ENG_CLASS
+set system login user NOC uid 2001
+set system login user NOC class NOC_CLASS
+set system login user admin uid 2000
+set system login user admin class ADMIN_CLASS
+set system login user admin authentication encrypted-password "$1$04mCWd.W$JAqIWp7HNQp6a9xADFa2N."
+set system login user console uid 2003
+set system login user console class super-user
+set system login user console authentication encrypted-password "$1$cEFPq/NC$laiII/AE1vChY9jSuvCMT1"
+set system services ssh root-login deny
+set system services ssh protocol-version v2
+set system services ssh connection-limit 10
+set system services ssh rate-limit 5
+set system services telnet connection-limit 10
+set system services telnet rate-limit 5
+set system syslog user * any emergency
+set system syslog host 24.174.40.52 any info
+set system syslog host 24.174.40.52 facility-override local6
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file messages archive size 10m
+set system syslog file messages archive files 5
+set system syslog file cli_log interactive-commands any
+set system syslog file cli_log archive size 1m
+set system syslog file cli_log archive files 5
+set system syslog file firewall_filter firewall any
+set system syslog file firewall_filter archive size 1m
+set system syslog file firewall_filter archive files 5
+set system syslog source-address 24.175.60.24
+set system processes dhcp-service accept-any-source-port
+set system ntp boot-server 24.174.41.6
+set system ntp server 24.174.41.6
+set system ntp source-address 24.175.60.24
+set chassis aggregated-devices ethernet device-count 64
+set chassis alarm management-ethernet link-down ignore
+set chassis lcd-menu fpc 0 menu-item maintenance-menu disable
+set interfaces apply-groups INTERFACE_AE
+
+
+
+set interfaces ae0 disable
+set interfaces ae1 disable
+set interfaces ae2 disable
+set interfaces ae3 disable
+set interfaces ae4 disable
+set interfaces ae5 disable
+set interfaces ae6 disable
+set interfaces ae7 disable
+set interfaces ae8 disable
+set interfaces ae9 disable
+set interfaces ae10 disable
+set interfaces ae11 disable
+set interfaces ae12 disable
+set interfaces ae13 disable             
+set interfaces ae14 disable
+set interfaces ae15 disable
+set interfaces ae16 disable
+set interfaces ae17 disable
+set interfaces ae18 disable
+set interfaces ae19 disable
+set interfaces ae20 disable
+set interfaces ae21 disable
+set interfaces ae22 disable
+set interfaces ae23 disable
+set interfaces ae24 disable
+set interfaces ae25 disable
+set interfaces ae26 disable
+set interfaces ae27 disable
+set interfaces ae28 disable
+set interfaces ae29 disable
+set interfaces ae30 disable
+set interfaces ae31 disable
+set interfaces ae32 disable
+set interfaces ae33 disable
+set interfaces ae34 disable
+set interfaces ae35 disable
+set interfaces ae36 disable             
+set interfaces ae37 disable
+set interfaces ae38 disable
+set interfaces ae39 disable
+set interfaces ae40 disable
+set interfaces ae41 disable
+set interfaces ae42 disable
+set interfaces ae43 disable
+set interfaces ae44 disable
+set interfaces ae45 disable
+set interfaces ae46 disable
+set interfaces ae47 disable
+set interfaces ae48 disable
+set interfaces ae49 disable
+set interfaces ae50 disable
+set interfaces ae51 disable
+set interfaces ae52 disable
+set interfaces ae53 disable
+set interfaces ae54 disable
+set interfaces ae55 disable
+set interfaces ae56 disable
+set interfaces ae57 disable
+set interfaces ae58 disable
+set interfaces ae59 disable             
+set interfaces ae60 disable
+set interfaces ae61 disable
+set interfaces ae62 disable
+set interfaces irb mtu 1514
+set interfaces lo0 description bwvltx5401y
+set interfaces lo0 unit 0 family inet filter input PROTECT_RE
+set interfaces lo0 unit 0 family inet address x.x.x.x/32 primary
+set interfaces me0 disable
+set snmp name bwvltx5401y.netops.charter.com
+set snmp location "705 Paredes Line, Brownsville, TX 78521"
+set snmp contact CBO-CORE-IP-Texas
+set snmp filter-interfaces all-internal-interfaces
+set snmp community "$pA*4#sH7y!" authorization read-only
+set snmp community "$pA*4#sH7y!" clients 24.174.40.0/24
+set snmp community "$pA*4#sH7y!" clients 69.134.30.0/25
+set snmp community "$pA*4#sH7y!" clients 69.134.170.0/25
+set snmp community "$pA*4#sH7y!" clients 0.0.0.0/0 restrict
+set snmp community "$pA*4#sH7y!" clients 69.134.147.192/26
+set snmp community "$pA*4#sH7y!" clients 69.134.6.192/26
+set snmp community "$pA*4#sH7y!" clients 2001:1998:8c0:216::/64
+set snmp community "$pA*4#sH7y!" clients 2001:1998:880:216::/64
+set snmp community "$pA*4#sH7y!" clients 69.134.18.0/25
+set snmp community M4rk3t5B authorization read-only
+set snmp community M4rk3t5B clients 209.18.47.192/26
+set snmp community M4rk3t5B clients 2001:1998:0:4::200/120
+set snmp community M4rk3t5B clients 0.0.0.0/0 restrict
+set snmp community tFXe9N6jd authorization read-only
+set snmp community tFXe9N6jd clients 98.7.155.0/24
+set snmp community tFXe9N6jd clients 98.7.156.0/22
+set snmp community tFXe9N6jd clients 98.7.187.0/24
+set snmp community tFXe9N6jd clients 98.7.188.0/22
+set snmp community tFXe9N6jd clients 2600:6c7f:9330:1501::/64
+set snmp community tFXe9N6jd clients 2600:6c7f:9330:1502::/64
+set snmp community tFXe9N6jd clients 2600:6c7f:9340:1501::/64
+set snmp community tFXe9N6jd clients 2600:6c7f:9340:1502::/64
+set snmp community Fm6A83qw authorization read-only
+set snmp community Fm6A83qw clients 22.239.0.0/24
+set snmp community Fm6A83qw clients 22.239.128.0/24
+set snmp community Fm6A83qw clients 2607:f428:9340:1108::/64
+set snmp community Fm6A83qw clients 2607:f428:9330:1108::/64
+set policy-options prefix-list SNMP_ADDRESSES 22.239.0.0/24
+set policy-options prefix-list SNMP_ADDRESSES 22.239.128.0/24
+set policy-options prefix-list IPV6_SNMP_ADDRESSES 2607:f428:9340:1108::/64
+set policy-options prefix-list IPV6_SNMP_ADDRESSES 2607:f428:9330:1108::/64
+set policy-options prefix-list REMOTE_ACCESS 22.239.0.0/24
+set policy-options prefix-list REMOTE_ACCESS 22.239.128.0/24
+set policy-options prefix-list IPV6_REMOTE_ACCESS 2607:f428:9340:1108::/64
+set policy-options prefix-list IPV6_REMOTE_ACCESS 2607:f428:9330:1108::/64
+set snmp trap-group Fm6A83qw version v2
+set snmp trap-group Fm6A83qw targets 71.10.216.30
+set snmp trap-options source-address lo0
+set snmp trap-group "$pA*4#sH7y!" version v2
+set snmp trap-group "$pA*4#sH7y!" targets 69.134.30.46
+set snmp trap-group "$pA*4#sH7y!" targets 69.134.170.16
+set forwarding-options dhcp-relay overrides bootp-support
+set forwarding-options dhcp-relay relay-option equals hexadecimal ff forward-only
+set forwarding-options dhcp-relay server-group DHCP_SERVER_GROUP_1 24.174.42.50
+set forwarding-options dhcp-relay group DHCP_INTERFACE_GROUP_1 active-server-group DHCP_SERVER_GROUP_1
+set forwarding-options dhcp-relay group DHCP_INTERFACE_GROUP_1 interface ge-0/0/44.0
+set forwarding-options dhcp-relay group DHCP_INTERFACE_GROUP_1 interface ge-0/0/45.0
+set forwarding-options dhcp-relay group DHCP_INTERFACE_GROUP_1 interface ge-0/0/46.0
+set forwarding-options dhcp-relay group DHCP_INTERFACE_GROUP_1 interface ge-0/0/47.0
+set forwarding-options dhcp-relay group DHCP_INTERFACE_GROUP_1 interface irb.51
+set routing-options graceful-restart
+set routing-options static route 29.241.224.0/21 next-hop 192.168.220.202
+set routing-options static route 29.241.216.0/21 next-hop 192.168.220.198
+set routing-options static route 29.241.208.0/21 next-hop 192.168.220.194
+set routing-options static route 29.241.200.0/21 next-hop 192.168.220.190
+set routing-options router-id 24.175.60.24
+set routing-options autonomous-system 11427
+set routing-options forwarding-table export ECMP
+set routing-options multicast ssm-groups 232.0.0.0/8
+set routing-options multicast ssm-groups 239.0.0.0/8
+set protocols igmp traceoptions file igmp_log
+set protocols igmp traceoptions file size 1m
+set protocols igmp traceoptions file files 5
+set protocols igmp traceoptions flag general
+set protocols igmp interface et-0/1/0.0 version 3
+set protocols igmp interface et-0/1/3.0 version 3
+set protocols bgp traceoptions file bgp_log
+set protocols bgp traceoptions file size 1m
+set protocols bgp traceoptions file files 5
+set protocols bgp traceoptions flag open
+set protocols bgp traceoptions flag state
+set protocols bgp graceful-restart restart-time 120
+set protocols bgp graceful-restart stale-routes-time 360
+set protocols bgp group DEFAULT_ONLY_RR type internal
+set protocols bgp group DEFAULT_ONLY_RR description "DHUB PEERS"
+set protocols bgp group DEFAULT_ONLY_RR local-address 24.175.60.24
+set protocols bgp group DEFAULT_ONLY_RR import DEFAULT_ONLY
+set protocols bgp group DEFAULT_ONLY_RR family inet unicast
+set protocols bgp group DEFAULT_ONLY_RR authentication-key "$9$Qy6XnCuSrevWxeKJDk.5T"
+set protocols bgp group DEFAULT_ONLY_RR export IPV4_ADVERTISE_OUT
+set protocols bgp group DEFAULT_ONLY_RR peer-as 11427
+set protocols bgp group DEFAULT_ONLY_RR neighbor 24.175.52.137 description dllatxl304r
+set protocols bgp group DEFAULT_ONLY_RR neighbor 24.175.52.138 description dllatxl305r
+set protocols bgp group DEFAULT_ONLY_RR neighbor 24.175.52.139 description hstqtxl304r
+set protocols bgp group DEFAULT_ONLY_RR neighbor 24.175.52.140 description hstqtxl305r
+set protocols ospf traceoptions file ospf_log
+set protocols ospf traceoptions file size 1m
+set protocols ospf traceoptions file files 5
+set protocols ospf traceoptions flag state
+set protocols ospf traceoptions flag error
+set protocols ospf overload timeout 180
+set protocols ospf graceful-restart restart-duration 120
+set protocols ospf graceful-restart notify-duration 40
+set protocols ospf area 0.0.2.5 interface lo0.0 passive
+set protocols ospf area 0.0.2.5 interface et-0/1/0.0 apply-groups OSPF_DEFAULT
+set protocols ospf area 0.0.2.5 interface et-0/1/3.0 apply-groups OSPF_DEFAULT
+set protocols pim family inet6 disable
+set protocols pim traceoptions file pim_log
+set protocols pim traceoptions file size 1m
+set protocols pim traceoptions file files 5
+set protocols pim traceoptions flag general
+set protocols pim interface et-0/1/0.0 mode sparse
+set protocols pim interface et-0/1/3.0 mode sparse
+set protocols pim join-load-balance automatic
+set policy-options prefix-list STB_STATIC 10.0.0.0/8
+set policy-options prefix-list STB_STATIC 29.0.0.0/8
+set policy-options prefix-list REMOTE_ACCESS 24.174.40.0/24
+set policy-options prefix-list REMOTE_ACCESS 69.134.30.0/25
+set policy-options prefix-list REMOTE_ACCESS 69.134.170.0/25
+set policy-options prefix-list REMOTE_ACCESS 209.18.47.192/26
+set policy-options prefix-list REMOTE_ACCESS 69.134.147.192/26
+set policy-options prefix-list REMOTE_ACCESS 69.134.6.192/26
+set policy-options prefix-list SNMP_ADDRESSES 24.174.40.0/24
+set policy-options prefix-list SNMP_ADDRESSES 69.134.30.0/25
+set policy-options prefix-list SNMP_ADDRESSES 69.134.170.0/25
+set policy-options prefix-list SNMP_ADDRESSES 209.18.47.192/26
+set policy-options prefix-list SNMP_ADDRESSES 98.7.155.0/24
+set policy-options prefix-list SNMP_ADDRESSES 98.7.156.0/22
+set policy-options prefix-list SNMP_ADDRESSES 98.7.187.0/24
+set policy-options prefix-list SNMP_ADDRESSES 98.7.188.0/22
+set policy-options prefix-list SNMP_ADDRESSES 69.134.147.192/26
+set policy-options prefix-list SNMP_ADDRESSES 69.134.6.192/26
+set policy-options prefix-list IPV6_SNMP_ADDRESSES 2600:6c7f:9330:1501::/64
+set policy-options prefix-list IPV6_SNMP_ADDRESSES 2600:6c7f:9330:1502::/64
+set policy-options prefix-list IPV6_SNMP_ADDRESSES 2600:6c7f:9340:1501::/64
+set policy-options prefix-list IPV6_SNMP_ADDRESSES 2600:6c7f:9340:1502::/64
+set policy-options prefix-list REMOTE_ACCESS 98.7.155.0/24
+set policy-options prefix-list REMOTE_ACCESS 98.7.156.0/22
+set policy-options prefix-list REMOTE_ACCESS 98.7.187.0/24
+set policy-options prefix-list REMOTE_ACCESS 98.7.188.0/22
+set policy-options prefix-list IPV6_REMOTE_ACCESS 2600:6c7f:9330:1501::/64
+set policy-options prefix-list IPV6_REMOTE_ACCESS 2600:6c7f:9330:1502::/64
+set policy-options prefix-list IPV6_REMOTE_ACCESS 2600:6c7f:9340:1501::/64
+set policy-options prefix-list IPV6_REMOTE_ACCESS 2600:6c7f:9340:1502::/64
+set policy-options prefix-list BGP_ADDRESSES apply-path "protocols bgp group <*> neighbor <*>"
+set policy-options prefix-list DHCP_ADDRESSES apply-path "forwarding-options dhcp-relay server-group <*> <*>"
+set policy-options prefix-list DOMAIN_ADDRESSES 209.18.47.61/32
+set policy-options prefix-list DOMAIN_ADDRESSES 209.18.47.62/32
+set policy-options prefix-list FTP_ADDRESSES 24.174.40.190/32
+set policy-options prefix-list NTP_ADDRESSES 24.174.41.6/32
+set policy-options prefix-list NTP_ADDRESSES 24.175.60.24/32
+set policy-options prefix-list TACACS_ADDRESSES 24.242.190.58/32
+set policy-options prefix-list TACACS_ADDRESSES 98.145.34.58/32
+set policy-options prefix-list TACACS_ADDRESSES 209.18.47.128/26
+set policy-options prefix-list IPV6_REMOTE_ACCESS 2001:1998:0:4::200/120
+set policy-options prefix-list IPV6_SNMP_ADDRESSES 2001:1998:0:4::200/120
+set policy-options prefix-list IPV6_NTP_ADDRESSES
+set policy-options prefix-list IPV6_DOMAIN_ADDRESSES
+set policy-options prefix-list IPV6_TACACS_ADDRESSES
+set policy-options policy-statement DEFAULT_ONLY term DEFAULT from route-filter 0.0.0.0/0 exact
+set policy-options policy-statement DEFAULT_ONLY term DEFAULT then accept
+set policy-options policy-statement DEFAULT_ONLY term DENY then reject
+set policy-options policy-statement ECMP then load-balance per-packet
+set policy-options policy-statement IPV4_ADVERTISE_OUT term DENY_DEFAULT from route-filter 0.0.0.0/0 exact
+set policy-options policy-statement IPV4_ADVERTISE_OUT term DENY_DEFAULT then reject
+set policy-options policy-statement IPV4_ADVERTISE_OUT term CONNECTED from protocol direct
+set policy-options policy-statement IPV4_ADVERTISE_OUT term CONNECTED from rib inet.0
+set policy-options policy-statement IPV4_ADVERTISE_OUT term CONNECTED then community add AREA
+set policy-options policy-statement IPV4_ADVERTISE_OUT term CONNECTED then next-hop self
+set policy-options policy-statement IPV4_ADVERTISE_OUT term CONNECTED then accept
+set policy-options policy-statement IPV4_ADVERTISE_OUT term STB_STATIC from protocol static
+set policy-options policy-statement IPV4_ADVERTISE_OUT term STB_STATIC from rib inet.0
+set policy-options policy-statement IPV4_ADVERTISE_OUT term STB_STATIC from prefix-list-filter STB_STATIC orlonger
+set policy-options policy-statement IPV4_ADVERTISE_OUT term STB_STATIC then community add AREA
+set policy-options policy-statement IPV4_ADVERTISE_OUT term STB_STATIC then next-hop self
+set policy-options policy-statement IPV4_ADVERTISE_OUT term STB_STATIC then accept
+set policy-options community AREA members 11427:517
+set firewall family inet filter PROTECT_RE term ICMP_TRUSTED from source-prefix-list REMOTE_ACCESS
+set firewall family inet filter PROTECT_RE term ICMP_TRUSTED from protocol icmp
+set firewall family inet filter PROTECT_RE term ICMP_TRUSTED then accept
+set firewall family inet filter PROTECT_RE term ICMP from protocol icmp
+set firewall family inet filter PROTECT_RE term ICMP from icmp-type echo-request
+set firewall family inet filter PROTECT_RE term ICMP from icmp-type echo-reply
+set firewall family inet filter PROTECT_RE term ICMP from icmp-type unreachable
+set firewall family inet filter PROTECT_RE term ICMP from icmp-type time-exceeded
+set firewall family inet filter PROTECT_RE term ICMP then policer SMALL_BW_POLICER
+set firewall family inet filter PROTECT_RE term ICMP then accept
+set firewall family inet filter PROTECT_RE term TRACEROUTE from protocol udp
+set firewall family inet filter PROTECT_RE term TRACEROUTE from destination-port 33408-33535
+set firewall family inet filter PROTECT_RE term TRACEROUTE then policer SMALL_BW_POLICER
+set firewall family inet filter PROTECT_RE term TRACEROUTE then accept
+set firewall family inet filter PROTECT_RE term SSH from source-prefix-list REMOTE_ACCESS
+set firewall family inet filter PROTECT_RE term SSH from protocol tcp
+set firewall family inet filter PROTECT_RE term SSH from destination-port ssh
+set firewall family inet filter PROTECT_RE term SSH then accept
+set firewall family inet filter PROTECT_RE term SSH_OUTBOUND from source-prefix-list REMOTE_ACCESS
+set firewall family inet filter PROTECT_RE term SSH_OUTBOUND from protocol tcp
+set firewall family inet filter PROTECT_RE term SSH_OUTBOUND from source-port ssh
+set firewall family inet filter PROTECT_RE term SSH_OUTBOUND then accept
+set firewall family inet filter PROTECT_RE term TELNET from source-prefix-list REMOTE_ACCESS
+set firewall family inet filter PROTECT_RE term TELNET from protocol tcp
+set firewall family inet filter PROTECT_RE term TELNET from destination-port telnet
+set firewall family inet filter PROTECT_RE term TELNET then accept
+set firewall family inet filter PROTECT_RE term TELNET_OUTBOUND from source-prefix-list REMOTE_ACCESS
+set firewall family inet filter PROTECT_RE term TELNET_OUTBOUND from protocol tcp
+set firewall family inet filter PROTECT_RE term TELNET_OUTBOUND from source-port telnet
+set firewall family inet filter PROTECT_RE term TELNET_OUTBOUND then accept
+set firewall family inet filter PROTECT_RE term BGP_SOURCE from source-prefix-list BGP_ADDRESSES
+set firewall family inet filter PROTECT_RE term BGP_SOURCE from protocol tcp
+set firewall family inet filter PROTECT_RE term BGP_SOURCE from source-port bgp
+set firewall family inet filter PROTECT_RE term BGP_SOURCE then accept
+set firewall family inet filter PROTECT_RE term BGP_DESTINATION from source-prefix-list BGP_ADDRESSES
+set firewall family inet filter PROTECT_RE term BGP_DESTINATION from protocol tcp
+set firewall family inet filter PROTECT_RE term BGP_DESTINATION from destination-port bgp
+set firewall family inet filter PROTECT_RE term BGP_DESTINATION then accept
+set firewall family inet filter PROTECT_RE term OSPF from precedence internet-control
+set firewall family inet filter PROTECT_RE term OSPF from protocol ospf
+set firewall family inet filter PROTECT_RE term OSPF then accept
+set firewall family inet filter PROTECT_RE term LDP_SOURCE from precedence internet-control
+set firewall family inet filter PROTECT_RE term LDP_SOURCE from protocol udp
+set firewall family inet filter PROTECT_RE term LDP_SOURCE from protocol tcp
+set firewall family inet filter PROTECT_RE term LDP_SOURCE from source-port ldp
+set firewall family inet filter PROTECT_RE term LDP_SOURCE then accept
+set firewall family inet filter PROTECT_RE term LDP_DESTINATION from precedence internet-control
+set firewall family inet filter PROTECT_RE term LDP_DESTINATION from protocol udp
+set firewall family inet filter PROTECT_RE term LDP_DESTINATION from protocol tcp
+set firewall family inet filter PROTECT_RE term LDP_DESTINATION from destination-port ldp
+set firewall family inet filter PROTECT_RE term LDP_DESTINATION then accept
+set firewall family inet filter PROTECT_RE term PIM_ALLOW from destination-address 224.0.0.13/32
+set firewall family inet filter PROTECT_RE term PIM_ALLOW from protocol pim
+set firewall family inet filter PROTECT_RE term PIM_ALLOW then accept
+set firewall family inet filter PROTECT_RE term IGMP from destination-address 224.0.0.0/29
+set firewall family inet filter PROTECT_RE term IGMP from destination-address 224.0.0.13/32
+set firewall family inet filter PROTECT_RE term IGMP from destination-address 224.0.0.22/32
+set firewall family inet filter PROTECT_RE term IGMP from protocol igmp
+set firewall family inet filter PROTECT_RE term IGMP then accept
+set firewall family inet filter PROTECT_RE term BFD_SOURCE from precedence internet-control
+set firewall family inet filter PROTECT_RE term BFD_SOURCE from protocol tcp
+set firewall family inet filter PROTECT_RE term BFD_SOURCE from protocol udp
+set firewall family inet filter PROTECT_RE term BFD_SOURCE from source-port 3784-3785
+set firewall family inet filter PROTECT_RE term BFD_SOURCE then accept
+set firewall family inet filter PROTECT_RE term BFD_DESTINATION from precedence internet-control
+set firewall family inet filter PROTECT_RE term BFD_DESTINATION from protocol tcp
+set firewall family inet filter PROTECT_RE term BFD_DESTINATION from protocol udp
+set firewall family inet filter PROTECT_RE term BFD_DESTINATION from destination-port 3784-3785
+set firewall family inet filter PROTECT_RE term BFD_DESTINATION then accept
+set firewall family inet filter PROTECT_RE term SNMP from source-prefix-list SNMP_ADDRESSES
+set firewall family inet filter PROTECT_RE term SNMP from protocol udp
+set firewall family inet filter PROTECT_RE term SNMP from destination-port snmp
+set firewall family inet filter PROTECT_RE term SNMP then accept
+set firewall family inet filter PROTECT_RE term NTP from source-prefix-list NTP_ADDRESSES
+set firewall family inet filter PROTECT_RE term NTP from protocol udp
+set firewall family inet filter PROTECT_RE term NTP from source-port ntp
+set firewall family inet filter PROTECT_RE term NTP then accept
+set firewall family inet filter PROTECT_RE term DOMAIN from source-prefix-list DOMAIN_ADDRESSES
+set firewall family inet filter PROTECT_RE term DOMAIN from protocol udp
+set firewall family inet filter PROTECT_RE term DOMAIN from source-port domain
+set firewall family inet filter PROTECT_RE term DOMAIN then accept
+set firewall family inet filter PROTECT_RE term TACACS from source-prefix-list TACACS_ADDRESSES
+set firewall family inet filter PROTECT_RE term TACACS from protocol udp
+set firewall family inet filter PROTECT_RE term TACACS from protocol tcp
+set firewall family inet filter PROTECT_RE term TACACS from source-port 49
+set firewall family inet filter PROTECT_RE term TACACS then accept
+set firewall family inet filter PROTECT_RE term BOOTP_SERVER from source-prefix-list DHCP_ADDRESSES
+set firewall family inet filter PROTECT_RE term BOOTP_SERVER from protocol udp
+set firewall family inet filter PROTECT_RE term BOOTP_SERVER from destination-port bootps
+set firewall family inet filter PROTECT_RE term BOOTP_SERVER from destination-port bootpc
+set firewall family inet filter PROTECT_RE term BOOTP_SERVER then accept
+set firewall family inet filter PROTECT_RE term BOOTP_CLIENT from source-address 0.0.0.0/32
+set firewall family inet filter PROTECT_RE term BOOTP_CLIENT from destination-address 255.255.255.255/32
+set firewall family inet filter PROTECT_RE term BOOTP_CLIENT from protocol udp
+set firewall family inet filter PROTECT_RE term BOOTP_CLIENT from source-port bootpc
+set firewall family inet filter PROTECT_RE term BOOTP_CLIENT from destination-port bootps
+set firewall family inet filter PROTECT_RE term BOOTP_CLIENT then accept
+set firewall family inet filter PROTECT_RE term FTP from source-prefix-list FTP_ADDRESSES
+set firewall family inet filter PROTECT_RE term FTP from protocol tcp
+set firewall family inet filter PROTECT_RE term FTP from source-port 21
+set firewall family inet filter PROTECT_RE term FTP from source-port 20
+set firewall family inet filter PROTECT_RE term FTP then accept
+set firewall family inet filter PROTECT_RE term OTHER then count DROP
+set firewall family inet filter PROTECT_RE term OTHER then discard
+set firewall family inet filter PROTECT_VIDEO term NTP from source-address 65.24.5.163/32
+set firewall family inet filter PROTECT_VIDEO term NTP from source-address 65.24.5.164/32
+set firewall family inet filter PROTECT_VIDEO term NTP from protocol udp
+set firewall family inet filter PROTECT_VIDEO term NTP from source-port ntp
+set firewall family inet filter PROTECT_VIDEO term NTP then accept
+set firewall family inet filter PROTECT_VIDEO term BILLING from source-address 205.144.151.147/32
+set firewall family inet filter PROTECT_VIDEO term BILLING then accept
+set firewall family inet filter PROTECT_VIDEO term BACKOFFICE from source-address 24.174.0.0/16
+set firewall family inet filter PROTECT_VIDEO term BACKOFFICE then accept
+set firewall family inet filter PROTECT_VIDEO term TRUSTED from source-address 24.175.0.0/18
+set firewall family inet filter PROTECT_VIDEO term TRUSTED from source-address 98.156.40.0/22
+set firewall family inet filter PROTECT_VIDEO term TRUSTED from source-address 10.96.0.0/11
+set firewall family inet filter PROTECT_VIDEO term TRUSTED from source-address 10.192.0.0/11
+set firewall family inet filter PROTECT_VIDEO term TRUSTED then accept
+set firewall family inet filter PROTECT_VIDEO term USERS from source-address 10.93.192.0/20
+set firewall family inet filter PROTECT_VIDEO term USERS from source-address 72.183.72.96/28
+set firewall family inet filter PROTECT_VIDEO term USERS then accept
+set firewall family inet filter PROTECT_VIDEO term HE_HUB_EQUIPMENT from source-address 172.16.0.0/12
+set firewall family inet filter PROTECT_VIDEO term HE_HUB_EQUIPMENT then accept
+set firewall family inet filter PROTECT_VIDEO term DENY then count DROP
+set firewall family inet filter PROTECT_VIDEO term DENY then discard
+set firewall family inet filter PROTECT_VIDEO_SOURCE term NTP from source-address 65.24.5.163/32
+set firewall family inet filter PROTECT_VIDEO_SOURCE term NTP from source-address 65.24.5.164/32
+set firewall family inet filter PROTECT_VIDEO_SOURCE term NTP from protocol udp
+set firewall family inet filter PROTECT_VIDEO_SOURCE term NTP from source-port ntp
+set firewall family inet filter PROTECT_VIDEO_SOURCE term NTP then accept
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 172.17.0.0/16
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.60.112.0/21
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.60.122.0/23
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.60.124.0/22
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.60.128.0/21
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.60.140.0/22
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.160.96.0/21
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.200.8.0/21
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.253.0.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 172.16.4.0/23
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 172.16.30.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 172.20.1.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 172.20.2.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.60.110.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.104.0.0/13
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.160.99.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 76.58.145.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 10.0.14.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 24.169.240.0/22
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 24.174.0.0/16
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 172.16.104.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED from source-address 172.16.98.0/24
+set firewall family inet filter PROTECT_VIDEO_SOURCE term TRUSTED then accept
+set firewall family inet filter PROTECT_VIDEO_SOURCE term DENY then count DROP
+set firewall family inet filter PROTECT_VIDEO_SOURCE term DENY then discard
+set firewall family inet filter PROTECT_QPSK term BOOTP from source-address 0.0.0.0/32
+set firewall family inet filter PROTECT_QPSK term BOOTP from destination-address 255.255.255.255/32
+set firewall family inet filter PROTECT_QPSK term BOOTP from protocol udp
+set firewall family inet filter PROTECT_QPSK term BOOTP from source-port bootpc
+set firewall family inet filter PROTECT_QPSK term BOOTP from destination-port bootps
+set firewall family inet filter PROTECT_QPSK term BOOTP then accept
+set firewall family inet filter PROTECT_QPSK term QPSK from source-address 172.26.0.0/21
+set firewall family inet filter PROTECT_QPSK term QPSK from source-address 192.168.192.0/18
+set firewall family inet filter PROTECT_QPSK term QPSK then accept
+set firewall family inet filter PROTECT_QPSK term TCP from protocol tcp
+set firewall family inet filter PROTECT_QPSK term TCP from destination-port 1024-65535
+set firewall family inet filter PROTECT_QPSK term TCP then accept
+set firewall family inet filter PROTECT_QPSK term UDP from protocol udp
+set firewall family inet filter PROTECT_QPSK term UDP from destination-port 1024-65535
+set firewall family inet filter PROTECT_QPSK term UDP then accept
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 24.174.42.0/23
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 172.17.0.0/16
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.60.112.0/21
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.60.122.0/23
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.60.124.0/22
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.60.128.0/21
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.60.140.0/22
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.160.96.0/21
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.200.8.0/21
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.253.0.0/24
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 172.16.4.0/23
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 172.16.30.0/24
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 172.20.1.0/24
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 172.20.2.0/24
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.60.110.0/24
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.104.0.0/13
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.160.99.0/24
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 76.58.145.0/24
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 10.0.14.0/24
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-address 24.169.240.0/22
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from protocol udp
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-port syslog
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE from destination-port 7
+set firewall family inet filter PROTECT_QPSK term BACKOFFICE then accept
+set firewall family inet filter PROTECT_QPSK term ICMP from protocol icmp
+set firewall family inet filter PROTECT_QPSK term ICMP then accept
+set firewall family inet filter PROTECT_QPSK term DENY then count DROP
+set firewall family inet filter PROTECT_QPSK term DENY then log
+set firewall family inet filter PROTECT_QPSK term DENY then discard
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6_TRUSTED from source-prefix-list IPV6_REMOTE_ACCESS
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6_TRUSTED from next-header icmpv6
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6_TRUSTED then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND from destination-address fe80::/10
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND from destination-address ff02::/123
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND from destination-address ff02:0:0:0:0:1:ff00::/104
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND_LOCAL from source-address 2605:6000:0:4::/64
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND_LOCAL from source-address 2605:6000:0:8::/64
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND_LOCAL from destination-address 2605:6000:0:4::/64
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND_LOCAL from destination-address 2605:6000:0:8::/64
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND_LOCAL from next-header icmp6
+set firewall family inet6 filter IPV6_PROTECT_RE term IPV6_ND_LOCAL then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6 from next-header icmpv6
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6 from icmp-type echo-request
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6 from icmp-type echo-reply
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6 from icmp-type time-exceeded
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6 from icmp-type destination-unreachable
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6 from icmp-type packet-too-big
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6 from icmp-type parameter-problem
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6 then policer SMALL_BW_POLICER
+set firewall family inet6 filter IPV6_PROTECT_RE term ICMPV6 then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term TRACEROUTE from next-header udp
+set firewall family inet6 filter IPV6_PROTECT_RE term TRACEROUTE from destination-port 33408-33535
+set firewall family inet6 filter IPV6_PROTECT_RE term TRACEROUTE then policer SMALL_BW_POLICER
+set firewall family inet6 filter IPV6_PROTECT_RE term TRACEROUTE then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term SSH from source-prefix-list IPV6_REMOTE_ACCESS
+set firewall family inet6 filter IPV6_PROTECT_RE term SSH from next-header tcp
+set firewall family inet6 filter IPV6_PROTECT_RE term SSH from destination-port ssh
+set firewall family inet6 filter IPV6_PROTECT_RE term SSH then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term SSH_OUTBOUND from source-prefix-list IPV6_REMOTE_ACCESS
+set firewall family inet6 filter IPV6_PROTECT_RE term SSH_OUTBOUND from next-header tcp
+set firewall family inet6 filter IPV6_PROTECT_RE term SSH_OUTBOUND from source-port ssh
+set firewall family inet6 filter IPV6_PROTECT_RE term SSH_OUTBOUND then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term TELNET from source-prefix-list IPV6_REMOTE_ACCESS
+set firewall family inet6 filter IPV6_PROTECT_RE term TELNET from next-header tcp
+set firewall family inet6 filter IPV6_PROTECT_RE term TELNET from destination-port telnet
+set firewall family inet6 filter IPV6_PROTECT_RE term TELNET then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term TELNET_OUTBOUND from source-prefix-list IPV6_REMOTE_ACCESS
+set firewall family inet6 filter IPV6_PROTECT_RE term TELNET_OUTBOUND from next-header tcp
+set firewall family inet6 filter IPV6_PROTECT_RE term TELNET_OUTBOUND from source-port telnet
+set firewall family inet6 filter IPV6_PROTECT_RE term TELNET_OUTBOUND then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term BGP_SOURCE from source-prefix-list BGP_ADDRESSES
+set firewall family inet6 filter IPV6_PROTECT_RE term BGP_SOURCE from next-header tcp
+set firewall family inet6 filter IPV6_PROTECT_RE term BGP_SOURCE from source-port bgp
+set firewall family inet6 filter IPV6_PROTECT_RE term BGP_SOURCE then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term BGP_DESTINATION from source-prefix-list BGP_ADDRESSES
+set firewall family inet6 filter IPV6_PROTECT_RE term BGP_DESTINATION from next-header tcp
+set firewall family inet6 filter IPV6_PROTECT_RE term BGP_DESTINATION from destination-port bgp
+set firewall family inet6 filter IPV6_PROTECT_RE term BGP_DESTINATION then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term SNMP from source-prefix-list IPV6_SNMP_ADDRESSES
+set firewall family inet6 filter IPV6_PROTECT_RE term SNMP from next-header udp
+set firewall family inet6 filter IPV6_PROTECT_RE term SNMP from destination-port snmp
+set firewall family inet6 filter IPV6_PROTECT_RE term SNMP then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term NTP from source-prefix-list IPV6_NTP_ADDRESSES
+set firewall family inet6 filter IPV6_PROTECT_RE term NTP from next-header udp
+set firewall family inet6 filter IPV6_PROTECT_RE term NTP from source-port ntp
+set firewall family inet6 filter IPV6_PROTECT_RE term NTP then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term DOMAIN from source-prefix-list IPV6_DOMAIN_ADDRESSES
+set firewall family inet6 filter IPV6_PROTECT_RE term DOMAIN from next-header udp
+set firewall family inet6 filter IPV6_PROTECT_RE term DOMAIN from source-port domain
+set firewall family inet6 filter IPV6_PROTECT_RE term DOMAIN then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term TACACS from source-prefix-list IPV6_TACACS_ADDRESSES
+set firewall family inet6 filter IPV6_PROTECT_RE term TACACS from next-header udp
+set firewall family inet6 filter IPV6_PROTECT_RE term TACACS from next-header tcp
+set firewall family inet6 filter IPV6_PROTECT_RE term TACACS from source-port 49
+set firewall family inet6 filter IPV6_PROTECT_RE term TACACS then accept
+set firewall family inet6 filter IPV6_PROTECT_RE term OTHER then count DROP
+set firewall family inet6 filter IPV6_PROTECT_RE term OTHER then discard
+set firewall policer SMALL_BW_POLICER if-exceeding bandwidth-limit 256k
+set firewall policer SMALL_BW_POLICER if-exceeding burst-size-limit 20k
+set firewall policer SMALL_BW_POLICER then discard
+
+*********IF EAS Filter is Needed
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term DNS from source-address 209.18.47.61/32
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term DNS from source-address 209.18.47.62/32
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term DNS from protocol udp
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term DNS from source-port 53
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term DNS from destination-port 1024-65535
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term DNS then accept
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_COLLECTORS from source-address 34.238.144.142/32
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_COLLECTORS from source-address 35.168.166.79/32
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_COLLECTORS from protocol tcp
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_COLLECTORS from source-port 22
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_COLLECTORS from destination-port 1024-65535
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_COLLECTORS then accept
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_ADMINS from source-address 76.85.227.0/24
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_ADMINS from source-address 76.85.244.128/26
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_ADMINS from source-address 204.235.114.0/24
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_ADMINS from source-address 207.93.212.0/24
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_ADMINS from protocol tcp
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_ADMINS from source-port 1024-65535
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_ADMINS from destination-port 22
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_ADMINS from destination-port 443
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term CHARTER_EAS_ADMINS then accept
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term FEMA_SOURCES from protocol tcp
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term FEMA_SOURCES from source-port 80
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term FEMA_SOURCES from source-port 443
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term FEMA_SOURCES from destination-port 1024-65535
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term FEMA_SOURCES from tcp-established
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term FEMA_SOURCES then accept
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term REJECT_ALL then count DROP
+set firewall family inet filter PROTECT_EAS_CAP_SERVER term REJECT_ALL then discard

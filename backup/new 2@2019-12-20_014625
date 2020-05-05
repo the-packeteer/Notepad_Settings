@@ -1,0 +1,115 @@
+----------------
+ip access-list resequence PROTECT_VIDEO 10 10
+!
+ip access-list extended PROTECT_VIDEO
+remark NOC_MONITORING
+  permit ip 69.134.208.32 0.0.0.31 any
+  permit ip host 69.134.21.71 any
+  permit ip host 69.134.161.71 any
+  permit ip host 71.10.216.30 any
+  permit ip 24.174.72.0 0.0.1.255 any
+  permit ip 24.93.54.0 0.0.0.255 any
+  permit ip 72.183.76.128 0.0.0.248 any
+  permit ip 142.136.0.0 0.0.15.255 any
+!
+ip access-list resequence PROTECT_VIDEO 10 10
+!
+vlan 53
+ exit
+!
+interface Vlan53
+ description "TX/RX Mgmt"
+ ip address 22.184.157.193 255.255.255.192
+ ip access-group PROTECT_VIDEO out
+ no ip redirects
+ load-interval 30
+ no shutdown
+!
+int G3/25
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/26
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/27
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/28
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/29
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/30
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/31
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/39
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/40
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/44
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!
+int G3/45
+description "to TX/RX EQUIPMENT"
+ switchport
+ switchport access vlan 53
+ switchport mode access
+ load-interval 30
+ exit
+!

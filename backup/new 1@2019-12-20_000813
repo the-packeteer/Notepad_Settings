@@ -1,0 +1,30 @@
+set vlans TXRX_MGMT vlan-id 53
+#
+set interfaces irb unit 53 description TXRX_MGMT
+set interfaces irb unit 53 family inet filter output PROTECT_VIDEO
+set interfaces irb unit 53 family inet address 22.184.150.193/26
+#
+set vlans TXRX_MGMT l3-interface irb.53
+#
+set interfaces ge-0/0/7 description "to TX/RX EQUIPMENT"
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members TXRX_MGMT
+#
+set interfaces ge-0/0/8 description "to TX/RX EQUIPMENT"
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members TXRX_MGMT
+#
+set interfaces ge-0/0/4 description "to TX/RX EQUIPMENT"
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TXRX_MGMT
+#
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 69.134.208.32/27
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 69.134.21.71/32
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 69.134.161.71/32
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 71.10.216.30/32
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 24.174.72.0/23
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 24.93.54.0/24
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 72.183.76.128/30
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 142.136.0.0/20
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING then accept
+
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING then accept
+#
+insert firewall family inet filter PROTECT_VIDEO term NOC_MONITORING before term DENY

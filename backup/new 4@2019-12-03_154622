@@ -1,0 +1,76 @@
+alictxbz01x#show run | in ntp server
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+allntx3901x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+artntxaf01v#show run | in ntp server
+ntp server 24.93.61.3
+ntp server 24.93.61.4
+artntxaf02x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+artotxpz01x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+artrtx2801x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+bdfrtxay01x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+bevltxdh01x#show run | in ntp server
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+blhttx0201x#show run | in ntp server
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+bumutx2701x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+bumutx2801x#show run | in ntp server
+ntp server 24.93.61.3
+ntp server 24.93.61.4
+ntp server 24.174.41.6
+bumutx2901x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+bwvltx5401x#show run | in ntp server
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+crchtxwb01x#show run | in ntp server
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+crcjtx1401x#show run | in ntp server
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+crcktx2101x#show run | in ntp server
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+crtntxjt01x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+dllctxra01x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+dllctxsi01x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+dllltx1901x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3
+dllmtxkd01x#show run | in ntp server
+ntp server 24.174.41.6
+ntp server 24.93.61.4
+ntp server 24.93.61.3

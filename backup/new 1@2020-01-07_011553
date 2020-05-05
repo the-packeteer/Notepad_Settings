@@ -1,0 +1,25 @@
+router ospf 11427
+ area 523
+ interface Bundle-Ether40
+   authentication message-digest
+   message-digest-key 1 md5 encrypted 12165C1E4A1E5B
+   network point-to-point
+   passive disable
+!
+ interface Bundle-Ether41
+   authentication message-digest
+   message-digest-key 1 md5 encrypted 12165C1E4A1E5B
+   network point-to-point
+   passive disable
+!
+ interface Bundle-Ether42
+   authentication message-digest
+   message-digest-key 1 md5 encrypted 12165C1E4A1E5B
+   network point-to-point
+   passive disable
+! 
+interface Bundle-Ether43
+   authentication message-digest
+   message-digest-key 1 md5 encrypted 12165C1E4A1E5B
+   network point-to-point
+   passive disable

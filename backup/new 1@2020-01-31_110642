@@ -1,0 +1,71 @@
+X-Connect Config
+----------------
+#Pre-Check
+
+!Verify L2Circuit is up/up on both uvldtx0303h and dllatxl302r
+
+uvldtx0303h
+show xconnect interface GigabitEthernet 6/2
+
+dllatxl302r
+show xconnect interface TenGigabitEthernet 7/6.610
+
+Move Xconnect (l2circuit) from uvldtx0303h to uvldtx0301h
+
+!Remove xconnect from uvldtx0303h
+
+uvldtx0303h
+
+configure
+!
+default interface GigabitEthernet6/2
+!
+interface GigabitEthernet6/2 
+ shut
+ exit
+!
+end
+
+!Configure l2circuit on uvldtx0301h
+
+uvldtx0301h
+
+configure exclusive
+#
+set interfaces xe-0/0/72 description "[TYPE=L2VPN][USE=CORE][GRNT=chnxxxxxxxx][BW=1G][ZLOC=dllatxl302r TE7/6.610]"
+set interfaces xe-0/0/72 mtu 9100
+set interfaces xe-0/0/72 encapsulation ethernet-ccc
+set interfaces xe-0/0/72 unit 0 family ccc
+#
+set protocols l2circuit neighbor 24.175.52.128 interface xe-0/0/72.0 virtual-circuit-id 610
+set protocols l2circuit neighbor 24.175.52.128 interface xe-0/0/72.0 description "[TYPE=L2VPN][USE=CORE][GRNT=chnxxxxxxxx][BW=1G][ZLOC=dllatxl302r TE7/6.610]"
+set protocols l2circuit neighbor 24.175.52.128 interface xe-0/0/72.0 encapsulation-type ethernet
+#
+show | compare
+#
+commit check
+
+
+#Post-Check
+
+!Verify L2Circuit is up/up on both uvldtx0301h and dllatxl302r
+
+uvldtx0301h
+
+show l2circuit connections interface ge-0/0/72.0
+
+dllatxl302r
+
+show xconnect interface TenGigabitEthernet 7/6.610
+
+
+
+Interface swings
+----------------
+show interface description | exclude down !get up/up interfaces to verify post!
+!
+show arp !get IP list to verify post!
+!
+ping checks
+!
+show ip route sumary !to verify installed routes!

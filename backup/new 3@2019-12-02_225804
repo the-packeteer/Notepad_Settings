@@ -1,0 +1,75 @@
+ Implementation Procedure
+The implementation process provides detailed step-by-step instructions to clearly explain who (ISP or Implementation Engineer) will do each step and exactly how to complete the step.
+
+This MOP will cover:
+
+Add subnets into prefix-list
+Verify route is now in route table
+Verify routing is intact
+Verify L3 connectivity via ping
+dtr21ftwotx
+
+#Add subnets into prefix-list
+
+configure terminal
+!
+edit prefix-set CONNECTED-NETWORK-MGMT inline add 172.28.91.200/29
+!
+commit 
+#Verify interface is up/up
+
+show interfaces GigabitEthernet0/7/1/19 detail | include GigabitEthernet0/7/1/19
+!shows up/up, up/down, or down/down!
+
+monitor interface GigabitEthernet0/7/1/19
+!verify traffic(if any ,as this is a new interface turn up)!
+#Verify route is now in route table
+
+show route 172.28.91.200
+!the subnet should be known via "local"!
+#Verify routing is intact
+
+show isis adjacency | include Total
+!shows total adjacencies
+
+show bgp summary
+!shows BGP neighborships!
+
+show pim summary
+!shows PIM neighborships!
+#Verify L3 connectivity via ping
+
+ping 172.28.91.202 source 172.28.91.201
+dtr01nrictx
+
+#Enable interface/Configure P2P on interface
+
+configure terminal
+!
+edit prefix-set CONNECTED-NETWORK-MGMT inline add 172.28.4.64/29
+!
+commit
+#Verify interface is up/up
+
+show interfaces GigabitEthernet0/7/1/19 detail | include GigabitEthernet0/7/1/19
+!shows up/up, up/down, or down/down!
+
+monitor interface GigabitEthernet0/7/1/19
+!verify traffic(if any ,as this is a new interface turn up)!
+#Verify route is now in route table
+
+show route 172.28.91.200
+!the subnet should be known via "local"!
+#Verify routing is intact
+
+show isis adjacency | include Total
+!shows total adjacencies
+
+show bgp summary
+!shows BGP neighborships!
+
+show pim summary
+!shows PIM neighborships!
+#Verify L3 connectivity via ping
+
+ping 172.28.4.66 source 172.28.4.65

@@ -1,0 +1,8 @@
+John,
+
+ Considering that the server connectivity is acheived when the IPs are swapped, the Core configuration appears correct. What we can try is to allocate another 72.x.x.x/30 for this interface, or we can commit to swapping the IPs,
+ which would correct the issue. 
+ 
+ If we commit to swapping the IPs, Core can provide a MOP that will: 1) reverse the IP subnet (i.e. STVA = .5 / Core =.6), and 2) update the BGP neighbor statements to reflect the new neighbor IP (.5).
+ 
+ Please let me know what avenue you would like to take/discuss.

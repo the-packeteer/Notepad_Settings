@@ -1,0 +1,5 @@
+Verify AE on 01h/02h config
+Shut VLAN Before moving
+Ping via Bastion Pre-Post
+ISP check VOD Servers Pre-Post
+Check EAS ACL

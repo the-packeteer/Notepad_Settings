@@ -1,0 +1,110 @@
+WO0000000604469
+
+set interfaces xe-0/0/68 ether-options 802.3ad ae9
+set interfaces xe-0/0/69 ether-options 802.3ad ae9
+set interfaces ae9 apply-groups INTERFACE_7600
+set interfaces ae9 description "agg to uvldtx0303h PO1"
+set interfaces ae9 unit 0 family inet address 24.175.58.152/31
+set interfaces ae9 unit 0 family inet6 address 2605:6000:0:4::a:6e/127
+set protocols igmp interface ae9.0 version 2
+set protocols mpls interface ae9.0
+set protocols isis interface ae9.0 apply-groups ISIS_LDP_INTERFACE_L1
+set protocols isis interface ae9.0 level 1 ipv6-unicast-metric 100
+set protocols ospf area 0.0.2.8 interface ae9.0 apply-groups OSPF_7600
+set protocols ospf area 0.0.2.8 interface ae9.0 metric 100
+set protocols ldp interface ae9.0
+set protocols pim interface ae9.0 family inet
+set protocols pim interface ae9.0 mode sparse
+
+
+
+uvldtx0301h
+-----------
+set groups OSPF_EX4300 protocols ospf area <*> interface <*> interface-type p2p
+set groups OSPF_EX4300 protocols ospf area <*> interface <*> metric 100
+set groups OSPF_EX4300 protocols ospf area <*> interface <*> hello-interval 1
+set groups OSPF_EX4300 protocols ospf area <*> interface <*> authentication md5 1 key "<encrypted password>"
+#
+set groups INTERFACE_EX4300 interfaces <*> mtu 9192
+set groups INTERFACE_EX4300 interfaces <*> unit 0 family inet
+#
+set interfaces ae23 description "[TYPE=CORE][BW=20G][GRNT=chn00000000][ZLOC=uvldtx0301y AE1]"
+set interfaces ae23 apply-groups INTERFACE_EX4300
+set interfaces ae23 unit 0 family inet address 24.28.90.212/31
+#
+set interfaces xe-0/0/68 description "[TYPE=LAG][BW=20G][GRNT=chn00000000][ZLOC=uvldtx0301y AE1]"
+set interfaces xe-0/0/68 ether-options 802.3ad ae23
+#
+set interfaces xe-0/0/69 description "[TYPE=LAG][BW=20G][GRNT=chn00000000][ZLOC=uvldtx0301y AE1]"
+set interfaces xe-0/0/69 ether-options 802.3ad ae23
+#
+set protocols igmp interface ae23.0 version 2
+#
+set protocols mpls interface ae23.0
+#
+set protocols isis interface ae23.0 apply-groups ISIS_LDP_INTERFACE_L1
+set protocols isis interface ae23.0 level 1 ipv6-unicast-metric 100
+#
+set protocols ospf area 0.0.2.8 interface ae23.0 apply-groups OSPF_7600
+set protocols ospf area 0.0.2.8 interface ae23.0 metric 100
+#
+set protocols ldp interface ae23.0
+#
+set protocols pim interface ae23.0 family inet
+set protocols pim interface ae23.0 mode sparse
+
+
+uvldtx0302h
+-----------
+set groups OSPF_EX4300 protocols ospf area <*> interface <*> interface-type p2p
+set groups OSPF_EX4300 protocols ospf area <*> interface <*> metric 100
+set groups OSPF_EX4300 protocols ospf area <*> interface <*> hello-interval 1
+set groups OSPF_EX4300 protocols ospf area <*> interface <*> authentication md5 1 key "<encrypted password>"
+#
+set groups INTERFACE_EX4300 interfaces <*> mtu 9192
+set groups INTERFACE_EX4300 interfaces <*> unit 0 family inet
+#
+set interfaces ae23 description "[TYPE=CORE][BW=20G][GRNT=chn00000000][ZLOC=uvldtx0301y AE2]"
+set interfaces ae23 apply-groups INTERFACE_EX4300
+set interfaces ae23 unit 0 family inet address 24.28.90.214/31
+#
+set interfaces xe-0/0/68 description "[TYPE=LAG][BW=20G][GRNT=chn00000000][ZLOC=uvldtx0301y AE2]"
+set interfaces xe-0/0/68 ether-options 802.3ad ae23
+#
+set interfaces xe-0/0/69 description "[TYPE=LAG][BW=20G][GRNT=chn00000000][ZLOC=uvldtx0301y AE2]"
+set interfaces xe-0/0/69 ether-options 802.3ad ae23
+#
+set protocols igmp interface ae23.0 version 2
+#
+set protocols mpls interface ae23.0
+#
+set protocols isis interface ae23.0 apply-groups ISIS_LDP_INTERFACE_L1
+set protocols isis interface ae23.0 level 1 ipv6-unicast-metric 100
+#
+set protocols ospf area 0.0.2.8 interface ae23.0 apply-groups OSPF_7600
+set protocols ospf area 0.0.2.8 interface ae23.0 metric 100
+#
+set protocols ldp interface ae23.0
+#
+set protocols pim interface ae23.0 family inet
+set protocols pim interface ae23.0 mode sparse
+
+
+
+
+uvldtx0301y
+-----------
+delete interfaces ae1 unit 0 family inet address 24.175.58.153/31
+delete interfaces ae2 unit 0 family inet address 24.175.58.163/31
+#
+set interfaces ae1 apply-groups INTERFACE_QFX
+set interfaces ae1 description "[TYPE=CORE][BW=20G][GRNT=chn00000000][ZLOC=ulvdtx0301h ae23]"
+set interfaces ae1 disable
+set interfaces ae1 mtu 9216
+set interfaces ae1 unit 0 family inet address 24.28.90.209/31
+#
+set interfaces ae2 apply-groups INTERFACE_QFX
+set interfaces ae2 description "[TYPE=CORE][BW=20G][GRNT=chn00000000][ZLOC=ulvdtx0302h ae23]"
+set interfaces ae2 disable
+set interfaces ae2 mtu 9216
+set interfaces ae2 unit 0 family inet address 24.28.90.211/31

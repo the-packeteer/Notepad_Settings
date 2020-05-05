@@ -1,0 +1,23 @@
+neighbor 2001:506:100:c00:0:6022:c200:14 activate
+neighbor 2001:506:100:c00:0:6022:c200:15 activate
+neighbor 2001:506:100:c00:0:6022:c200:16 activate
+
+
+configure terminal
+!
+router bgp 20115
+!
+neighbor 96.34.194.104 peer-group iBGP-RR-CLIENTS-CMTS-C4
+neighbor 96.34.194.105 peer-group iBGP-RR-CLIENTS-CMTS-C4
+neighbor 96.34.194.108 peer-group iBGP-RR-CLIENTS-CMTS-C4
+!
+neighbor 96.34.194.104 description cts37ftwotx-E6000
+neighbor 96.34.194.105 description cts38ftwotx-E6000
+neighbor 96.34.194.108 description cts39ftwotx-E6000
+!
+address-family ipv4
+neighbor 96.34.194.104 activate
+neighbor 96.34.194.105 activate
+neighbor 96.34.194.108 activate
+!
+end

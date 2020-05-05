@@ -1,0 +1,19 @@
+interface Bundle-Ether20 description "lag to dllbtxlb-de-sen0001"
+interface Bundle-Ether20﻿ mtu 9192
+interface Bundle-Ether20﻿ ipv4 address 24.28.90.173/30
+interface Bundle-Ether20﻿ ipv6 address 2605:6000:0:8::1:15/126
+interface Bundle-Ether20﻿ bundle minimum-active links 1
+interface Bundle-Ether20﻿ load-interval 30
+interface Bundle-Ether20 dampening 1 750 2000 4
+interface Bundle-Ether20 ipv4 access-group STVA_OUT_IPV4_FILTER egress
+interface Bundle-Ether20 ipv6 access-group STVA_OUT_IPV6_FILTER egress
+!
+interface Bundle-Ether21 description "lag to dllbtxlb-de-sen0002"
+interface Bundle-Ether21 mtu 9192
+interface Bundle-Ether21 ipv4 address 24.28.90.177/30
+interface Bundle-Ether21 ipv6 address 2605:6000:0:8::1:19/126
+interface Bundle-Ether21 bundle minimum-active links 1
+interface Bundle-Ether21 load-interval 30
+interface Bundle-Ether21 dampening 1 750 2000 4
+interface Bundle-Ether21 ipv4 access-group STVA_OUT_IPV4_FILTER egress
+interface Bundle-Ether21 ipv6 access-group STVA_OUT_IPV6_FILTER egress

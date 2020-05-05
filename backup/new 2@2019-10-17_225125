@@ -1,0 +1,57 @@
+01h
+****
+(cts37ftwotx)
+show route range 96.34.130.146/31
+show configuration | match 96.34.130.146
+show configuration | match 96.34.130.147
+
+show route range 2001:0506:0100:0c03:0000:0000:0000:010a/127 
+show configuration | match 2001:0506:0100:0c03:0000:0000:0000:010a
+show configuration | match 2001:0506:0100:0c03:0000:0000:0000:010b
+
+(cts38ftwotx)
+show route range 96.34.130.154/31
+show configuration | match 96.34.130.154
+show configuration | match 96.34.130.155
+
+show route range 2001:0506:0100:0c04:0000:0000:0000:010a/127 
+show configuration | match 2001:0506:0100:0c04:0000:0000:0000:010a
+show configuration | match 2001:0506:0100:0c04:0000:0000:0000:010b
+
+(cts39ftwotx)
+show route range 96.34.131.168/31
+show configuration | match 96.34.131.168
+show configuration | match 96.34.131.169
+
+show route range 2001:0506:0100:0c03:0000:0000:0000:0024/127
+show configuration | match 2001:0506:0100:0c03:0000:0000:0000:0024
+show configuration | match 2001:0506:0100:0c03:0000:0000:0000:0025
+
+02h
+***
+(cts37ftwotx)
+show route range 96.34.130.150/31
+show configuration | match 96.34.130.150
+show configuration | match 96.34.130.151
+
+show route range 2001:0506:0100:0c03:0000:0000:0000:010/127
+show configuration | match 2001:0506:0100:0c03:0000:0000:0000:010e
+show configuration | match 2001:0506:0100:0c03:0000:0000:0000:010f
+
+(cts38ftwotx)
+show route range 96.34.130.158/31
+show configuration | match 96.34.130.158
+show configuration | match 96.34.130.159
+
+show route range 2001:0506:0100:0c04:0000:0000:0000:000e/127
+show configuration | match 2001:0506:0100:0c04:0000:0000:0000:000e
+show configuration | match 2001:0506:0100:0c04:0000:0000:0000:000f
+
+(cts39ftwotx)
+show route range 96.34.131.170/31
+show configuration | match 96.34.131.170
+show configuration | match 96.34.131.171
+
+show route range 2001:0506:0100:0c03:0000:0000:0000:010a/127
+show configuration | match 2001:0506:0100:0c03:0000:0000:0000:010a
+show configuration | match 2001:0506:0100:0c03:0000:0000:0000:010b

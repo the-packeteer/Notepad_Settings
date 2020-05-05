@@ -1,0 +1,12 @@
+configure
+!
+interface Bundle-Ether40 description "lag to dllbtxlb-de-sen0001"
+interface Bundle-Ether40 mtu 9192
+interface Bundle-Ether40 ipv4 address  72.179.204.117/30
+interface Bundle-Ether40 ipv6 address 2605:6000:0:8::8:4d/126
+interface Bundle-Ether40 bundle minimum-active links 1
+interface Bundle-Ether40 load-interval 30
+interface Bundle-Ether40 dampening 1 750 2000 4
+interface Bundle-Ether40 ipv4 access-group STVA_OUT_IPV4_FILTER egress
+interface Bundle-Ether40 ipv6 access-group STVA_OUT_IPV6_FILTER egress
+!

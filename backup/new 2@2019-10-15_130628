@@ -1,0 +1,31 @@
+!Verify prior to making configuration changes
+show configuration running-config interface bundle-ether 36
+monitor interface bundle-ether 36
+
+!Make configuration changes
+
+!Verify prior to making configuration changes
+show configuration running-config interface bundle-ether 36
+monitor interface bundle-ether 36
+
+
+
+config router isis 
+ interface Bundle-Ether36
+  address-family ipv6 unicast
+   metric 65000
+   exit
+  exit
+ exit
+router ospf
+ interface Bundle-Ether36
+  cost 65000
+  exit
+ exit
+exit
+
+   
+configure router ospf area 0.0.0.0 interface "lag-1" metric 65535
+configure router isis 0 interface "lag-1" level 2 metric 65535
+
+

@@ -1,0 +1,57 @@
+﻿show interfaces descriptions﻿ | match et-0/0/25 
+﻿show interfaces descriptions﻿ | match et-0/0/29 
+﻿show interfaces descriptions﻿ | match et-0/0/31 
+﻿show interfaces descriptions﻿ | match et-0/0/35 
+﻿#
+﻿﻿show configuration interface et-0/0/25 | display set
+show configuration interface et-0/0/29 | display set
+show configuration interface et-0/0/31 | display set
+show configuration interface et-0/0/35 | display set﻿
+
+
+show chassis hardware | no-more
+show interfaces diagnostics optics et-0/0/25 | match "power|xe" 
+show interfaces diagnostics optics et-0/0/29 | match "power|xe"
+show interfaces diagnostics optics et-0/0/31 | match "power|xe"
+show interfaces diagnostics optics et-0/0/35 | match "power|xe"
+
+
+
+
+
+hstqtxl303v (et-0/0/25) <--> hstntxl3-de-gev0001 (STREAMING_PORT1)
+hstqtxl303v (et-0/0/29) <--> hstntxl3-de-gev0002 (STREAMING_PORT1)
+hstqtxl303v (et-0/0/31) <--> hstntxl3-de-gev0003 (STREAMING_PORT1)
+hstqtxl303v (et-0/0/35) <--> hstntxl3-de-gev0004 (STREAMING_PORT1)
+
+
+
+
+﻿hstqtxl302r (GigabitEthernet1/7) <--> hstntxl3-de-gev0001 (iLO Port)
+hstqtxl302r (GigabitEthernet1/8) <--> hstntxl3-de-gev0002 (iLO Port)
+hstqtxl302r (GigabitEthernet1/9) <--> hstntxl3-de-gev0003 (iLO Port)
+hstqtxl302r (GigabitEthernet1/10)<--> hstntxl3-de-gev0004 (iLO Port)
+
+
+
+
+
+
+set interfaces et-0/0/25 description "TYPE=STVA][BW=100G][LAG=35][GRNT=chn00000000][ZLOC=hstntxl3-de-gev0001]"
+set interfaces et-0/0/25 ether-options 802.3ad ae35
+#
+set interfaces et-0/0/29 description "TYPE=STVA][BW=100G][LAG=36][GRNT=chn00000000][ZLOC=hstntxl3-de-gev0002]"
+set interfaces et-0/0/29 ether-options 802.3ad ae36
+#
+set interfaces et-0/0/31 description "TYPE=STVA][BW=100G][LAG=37][GRNT=chn00000000][ZLOC=hstntxl3-de-gev0003]"
+set interfaces et-0/0/31 ether-options 802.3ad ae37
+#
+set interfaces et-0/0/35 description "TYPE=STVA][BW=100G][LAG=38][GRNT=chn00000000][ZLOC=hstntxl3-de-gev0004]"
+set interfaces et-0/0/35 ether-options 802.3ad ae38
+
+show bgp summary | match 24.28.90.145 source 24.28.90.144 do-not-fragment rapid count 100  
+show bgp summary | match 24.28.90.147 source 24.28.90.146 do-not-fragment rapid count 100  
+show bgp summary | match 24.170.33.85 source 24.170.33.84 do-not-fragment rapid count 100  
+show bgp summary | match 24.170.33.87 source 24.170.33.86 do-not-fragment rapid count 100  
+
+ do-not-fragment rapid count 100  

@@ -1,0 +1,29 @@
+router ospf 11427
+area 0
+interface Bundle-Ether36
+cost 65000
+router isis 11427
+interface Bundle-Ether36
+address-family ipv6 unicast
+metric 65555
+commit comment "
+
+
+router ospf 11427
+area 0
+interface Bundle-Ether36
+cost 65000
+router isis 11427
+interface Bundle-Ether36
+address-family ipv6 unicast
+metric 65000
+end
+
+
+ksczksmp01r
+configure router ospf area 0.0.0.0 interface "lag-1" metric 65535
+configure router isis 0 interface "lag-1" level 2 metric 65535
+
+
+configure router ospf area 0.0.0.0 interface "lag-1" metric 65000 
+configure router isis 0 interface "lag-1" level 2 metric 65000 

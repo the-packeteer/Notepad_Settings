@@ -1,0 +1,32 @@
+JUNOS
+
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 24.174.72.0/23
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 24.93.54.0/24
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 72.183.76.128/30
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING from source-address 142.136.0.0/20
+set firewall family inet filter PROTECT_VIDEO term NOC_MONITORING then accept
+
+insert firewall family inet filter PROTECT_VIDEO term NOC_MONITORING before term DENY
+
+IOS
+
+ip access-list resequence PROTECT_VIDEO 10 10
+!
+ip access-list extended PROTECT_VIDEO
+remark NOC_MONITORING
+ x   permit ip 24.174.72.0 0.0.1.255 any
+ x+1 permit ip 24.93.54.0 0.0.0.255 any
+ x+2 permit ip 72.183.76.128 0.0.0.248 any
+ x+3 permit ip 142.136.0.0 0.0.15.255 any  
+!
+ip access-list resequence PROTECT_VIDEO 10 10
+
+IOS-XR
+
+ipv4 access-list PROTECT_VIDEO 60 remark TX_MARKET_VPN
+ipv4 access-list PROTECT_VIDEO 70 permit ipv4 24.174.72.0 0.0.1.255 any
+ipv4 access-list PROTECT_VIDEO 80 remark TX_ISP_TOOLS
+ipv4 access-list PROTECT_VIDEO 90 permit ipv4 24.93.54.0 0.0.0.255 any
+ipv4 access-list PROTECT_VIDEO 100 remark IT_NAT
+ipv4 access-list PROTECT_VIDEO 110 permit ipv4 72.183.76.128 0.0.0.248 any
+ipv4 access-list PROTECT_VIDEO 120 permit ipv4 142.136.0.0 0.0.15.255 any  
